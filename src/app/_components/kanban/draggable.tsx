@@ -1,49 +1,79 @@
 import React, { useState } from "react";
-import { useDraggable } from "@dnd-kit/core";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 import { TaskModal } from "./task-modal";
+import "@fontsource/coming-soon";
 
-export function Draggable({ id }: any) {
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({ id });
+export function Draggable({ task, columnId }: any) {
+  const { id, priority } = task;
+
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id });
 
   const [open, setOpen] = useState(false);
-  const [startPos, setStartPos] = useState<{ x: number; y: number } | null>(
-    null
-  );
+
+  const isDone = columnId === "done";
+
+  const isOverlay = columnId === "overlay";
+  const wrapperProps = isOverlay
+    ? {}
+    : {
+        ...listeners,
+        ...attributes,
+      };
 
   const style = {
-    transform: transform
-      ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
-      : undefined,
-  };
-
-  const handleMouseDown = (event: React.MouseEvent) => {
-    setStartPos({ x: event.clientX, y: event.clientY });
-  };
-
-  const handleClick = (event: React.MouseEvent) => {
-    if (startPos) {
-      const dx = Math.abs(event.clientX - startPos.x);
-      const dy = Math.abs(event.clientY - startPos.y);
-
-      if (dx < 5 && dy < 5) {
-        event.stopPropagation();
-        setOpen(true);
-      }
-    }
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : 1,
   };
 
   return (
     <>
       <div
         ref={setNodeRef}
-        {...listeners}
-        {...attributes}
         style={style}
-        onMouseDown={handleMouseDown}
-        onClick={handleClick}
-        className="p-2 bg-white shadow-md rounded-md cursor-pointer hover:bg-gray-200 transition"
+        className={`p-3 rounded-md hover:bg-yellow-200 transition cursor-pointer rotate-[0.5deg] shadow-md ${
+          isDone ? "bg-gray-300 opacity-50" : "bg-yellow-100"
+        }`}
       >
-        {id}
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+            setOpen(true);
+          }}
+          className="cursor-pointer flex justify-between items-center"
+        >
+          <span className="flex items-center gap-2">
+            <span className="font-['Coming_Soon'] text-gray-800">{id}</span>
+            <span
+              className={`w-2 h-2 rounded-full ${
+                priority === "high"
+                  ? "bg-red-500"
+                  : priority === "medium"
+                  ? "bg-yellow-400"
+                  : "bg-green-500"
+              }`}
+              title={`Priority: ${priority}`}
+            />
+          </span>
+
+          {/* Drag Handle */}
+          <span
+            {...wrapperProps}
+            onClick={(e) => e.stopPropagation()}
+            className="text-gray-500 cursor-grab hover:text-gray-800 px-2"
+            title="Drag"
+          >
+            ⠿
+          </span>
+        </div>
       </div>
 
       <TaskModal open={open} onClose={() => setOpen(false)} task={id} />
