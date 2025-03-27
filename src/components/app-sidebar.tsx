@@ -27,7 +27,7 @@ const items = [
   },
   {
     title: "Onboarding",
-    url: "/user-onboarding",
+    url: "/onboarding",
     icon: Calendar,
   },
 ];
