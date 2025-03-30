@@ -90,7 +90,7 @@ function EpicProgressWidget() {
             <div key={epic.id}>
               {/* Epic Label */}
               <div style={{ marginBottom: "0.3rem", fontWeight: 500, fontSize: "0.9rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                <img src={epicIcon} alt="epic" style={{ width: 16, height: 16 }} />
+                <span style={{ fontSize: "1rem", color: "#a362ea" }}>⚡</span>
                 {epic.id} {epic.name}
               </div>
 
