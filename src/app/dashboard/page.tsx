@@ -1,12 +1,15 @@
 "use client";
+import { AppSidebar } from "@/components/app-sidebar";
+import WidgetGrid from "@/components/ui/WidgetGrid";
 
-export default function DashboardPage() {
+function DashboardPage() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold">Dashboard</h1>
-      <p className="mt-4 text-gray-600">
-        Welcome to your Jira Redesign Dashboard.
-      </p>
+    <div className="dashboard-layout">
+        <AppSidebar />
+        <div className="dashboard-title"><h1>Project Dashboard</h1></div>   
+        <WidgetGrid />
     </div>
   );
 }
+
+export default DashboardPage;

@@ -1,0 +1,30 @@
+/* === Box === */
+.widget {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    min-width: 250px;
+    min-height: 280px;
+    text-align: left;
+  }
+  
+/* === Typography === */
+.widget h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.widget p {
+    font-size: 0.95rem;
+    color: #444;
+}
+  
+/* === Hover === */
+.widget:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease-in-out;
+    cursor: grab;
+  }
+  

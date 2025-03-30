@@ -1,0 +1,20 @@
+/* === Layout === */
+.widget-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 1rem;
+    justify-content: center;
+    padding: 10rem;
+    padding-left: 20rem;
+    padding-right: 20rem;
+    margin-top: auto;
+    background-color: rgb(253, 253, 253);
+    border-radius: 1.5%;
+}
+  
+/* Optional: Add responsiveness */
+@media (max-width: 768px) {
+    .widget-grid {
+      grid-template-columns: 1fr; /* Stack on smaller screens */
+    }
+}
