@@ -64,7 +64,6 @@ export function Draggable({ task, columnId }: any) {
             />
           </span>
 
-          {/* Drag Handle */}
           <span
             {...wrapperProps}
             onClick={(e) => e.stopPropagation()}

@@ -117,7 +117,6 @@ export default function KanbanBoard({
     let sourceColumnId: string | null = null;
     let targetColumnId: string | null = null;
 
-    // Identify which columns the active and over tasks are in
     Object.entries(columns).forEach(([columnId, column]) => {
       if (column.tasks.some((task) => task.id === activeId)) {
         sourceColumnId = columnId;
@@ -129,7 +128,6 @@ export default function KanbanBoard({
 
     if (!sourceColumnId || !targetColumnId) return;
 
-    // Same column → reorder using arrayMove
     if (sourceColumnId === targetColumnId) {
       const column = columns[sourceColumnId];
       const oldIndex = column.tasks.findIndex((task) => task.id === activeId);
@@ -144,7 +142,6 @@ export default function KanbanBoard({
         },
       });
     } else {
-      // Moving to a different column
       const sourceTasks = [...columns[sourceColumnId].tasks];
       const targetTasks = [...columns[targetColumnId].tasks];
 

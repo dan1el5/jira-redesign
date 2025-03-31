@@ -5,7 +5,7 @@ import {
   DialogContent,
   DialogActions,
 } from "@mui/material";
-import { Button } from "@/components/ui/button"; // Use your existing button component
+import { Button } from "@/components/ui/button";
 
 export function TaskModal({ open, onClose, task }: any) {
   return (

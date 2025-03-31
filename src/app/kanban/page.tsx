@@ -31,7 +31,6 @@ export default function DashboardPage() {
     const newTask = { id: title.trim(), priority };
     addTaskRef.current(newTask, column);
 
-    // Reset form
     setTitle("");
     setPriority("medium");
     setColumn("todo");
@@ -45,7 +44,6 @@ export default function DashboardPage() {
 
       <KanbanBoard addTaskRef={addTaskRef} />
 
-      {/* Floating Create Task Button */}
       <Button
         onClick={() => setOpen(true)}
         className="fixed bottom-6 right-6 rounded-full px-6 py-3 shadow-lg bg-indigo-600 hover:bg-indigo-700 text-white"
@@ -53,7 +51,6 @@ export default function DashboardPage() {
         + Create Task
       </Button>
 
-      {/* Modal */}
       <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>Create New Task</DialogTitle>
         <DialogContent className="space-y-4 mt-2">
