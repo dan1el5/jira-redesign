@@ -26,7 +26,7 @@ const colors = {
 
 function EpicProgressWidget() {
   return (
-    <div className="widget" style={{ minHeight: "320px" }}>
+    <div className="widget" style={{ display: "flex", flexDirection: "column", overflow: "auto" }}>
       <h2>Epic progress</h2>
       <p style={{ marginBottom: "1rem" }}>
         See how your epics are progressing at a glance.{" "}

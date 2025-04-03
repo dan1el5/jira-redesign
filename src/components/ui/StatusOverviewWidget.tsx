@@ -14,7 +14,7 @@ function StatusOverviewWidget() {
 
   return (
     <div className="widget">
-      <h2 style={{ marginBottom: "0rem" }}>Status overview</h2>
+      <h2>Status overview</h2>
       <p style={{ marginBottom: "2rem" }}>
         Get a snapshot of the status of your issues.{" "}
         <a href="#" style={{ color: "#2C84FF", fontWeight: 500 }}>View all issues</a>
@@ -22,8 +22,8 @@ function StatusOverviewWidget() {
 
       <div style={{ display: "flex", alignItems: "center", gap: "9rem" }}>
         {/* Left: Donut Chart */}
-        <div style={{ width: 120, height: 120, marginLeft: "10rem" }}>
-          <ResponsiveContainer width="100%" height="100%">
+        <div style={{ width: "50%" , height: 120, marginLeft: "2%" }}>
+          <ResponsiveContainer width="130%" height="100%">
             <PieChart>
               <Pie
                 data={data}
@@ -43,7 +43,7 @@ function StatusOverviewWidget() {
         </div>
 
         {/* Right: Summary */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", fontSize: "0.95rem" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", fontSize: "0.95rem", marginLeft: "-8rem", width: "50%" }}>
           {data.map((item) => (
             <div key={item.name} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
               <div

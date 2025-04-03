@@ -45,8 +45,8 @@ function getInitials(name: string) {
 
 function RecentActivityWidget() {
   return (
-    <div className="widget" style={{ minHeight: "295px", display: "flex", flexDirection: "column" }}>
-      <h2 style={{ marginBottom: "0rem" }}>Recent activity</h2>
+    <div className="widget" style={{ display: "flex", flexDirection: "column" }}>
+      <h2>Recent activity</h2>
       <p style={{ marginBottom: "1.5rem", fontSize: "0.9rem" }}>
         Stay up to date with what's happening across the project.
       </p>

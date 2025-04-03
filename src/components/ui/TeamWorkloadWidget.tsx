@@ -27,7 +27,7 @@ const assignees = [
 
 function TeamWorkloadWidget() {
   return (
-    <div className="widget" style={{ minHeight: "295px" }}>
+    <div className="widget">
       <h2>Team workload</h2>
       <p style={{ marginBottom: "1rem" }}>
         Monitor the capacity of your team.{" "}
@@ -41,7 +41,7 @@ function TeamWorkloadWidget() {
         <div style={{ flex: 2 }}>Work distribution</div>
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.50rem", maxHeight: "120px", overflowY: "auto" }}>
         {assignees.map((person) => (
           <div key={person.name} style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             {/* Left: Avatar + Name */}
