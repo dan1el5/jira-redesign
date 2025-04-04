@@ -1,4 +1,4 @@
-import Widget from "./Widget"
+import Widget from "./Widget";
 import "./WidgetGrid.css";
 import { useState } from "react";
 import {
@@ -19,7 +19,7 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 import { restrictToParentElement } from "@dnd-kit/modifiers";
 
-import StatusOverviewWidget from "./StatusOverviewWidget"; // ✅ Import the new widget
+import StatusOverviewWidget from "./StatusOverviewWidget";
 import TypesOfWorkWidget from "./TypesOfWorkWidget";
 import PriorityBreakdownWidget from "./PriorityBreakdownWidget";
 import EpicProgressWidget from "./EpicProgressWidget";
@@ -34,7 +34,7 @@ type WidgetData = {
 };
 
 const initialWidgets: WidgetData[] = [
-  { id: "status", component: <StatusOverviewWidget /> }, // ✅ New hard-coded JSX widget
+  { id: "status", component: <StatusOverviewWidget /> },
   { id: "types-of-work", component: <TypesOfWorkWidget /> },
   { id: "priority-breakdown", component: <PriorityBreakdownWidget /> },
   { id: "epic-progress", component: <EpicProgressWidget /> },
@@ -43,7 +43,8 @@ const initialWidgets: WidgetData[] = [
 ];
 
 function SortableItem({ id, title, content, component }: WidgetData) {
-  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id });
 
   const style = {
     transform: CSS.Transform.toString(transform),
